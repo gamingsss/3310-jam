@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://br8qpi1k8rmjm"]
+
+[ext_resource type="Texture2D" uid="uid://4jtflcim8wu2" path="res://Assets/Sprites/barra scroll uwu.png" id="1_ce5li"]
+
+[node name="ScrollBar" type="TextureRect"]
+texture = ExtResource("1_ce5li")

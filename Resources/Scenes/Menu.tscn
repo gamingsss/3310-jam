@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmtjptbsplqn2"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/main_menu.gd" id="1_k3ipy"]
+[ext_resource type="Script" path="res://Resources/Scripts/menu_label_control.gd" id="1_lrg0o"]
+[ext_resource type="Texture2D" uid="uid://tdltkfim2cia" path="res://Assets/Sprites/Labels/nokia phone book uwu.png" id="1_nlw6s"]
+[ext_resource type="Texture2D" uid="uid://cgt62jl86gf7b" path="res://Assets/Sprites/Bars/barra dx menu rubrica uwu.png" id="2_frix6"]
+[ext_resource type="FontFile" uid="uid://bwkdggkla5iug" path="res://Assets/Fonts/nokiafc22.ttf" id="4_m3s5q"]
+
+[sub_resource type="Gradient" id="Gradient_qo6je"]
+colors = PackedColorArray(0.780392, 0.941176, 0.847059, 1, 0.780392, 0.941176, 0.847059, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pavfo"]
+gradient = SubResource("Gradient_qo6je")
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_k3ipy")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_pavfo")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lrg0o")
+
+[node name="Label" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -17.0
+offset_right = 33.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nlw6s")
+
+[node name="SideBar" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("2_frix6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.262745, 0.321569, 0.239216, 1)
+theme_override_fonts/normal_font = ExtResource("4_m3s5q")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[center]Select"
+scroll_active = false
+shortcut_keys_enabled = false
