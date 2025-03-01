@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn3dk6jq11e81"]
+[gd_scene load_steps=6 format=3 uid="uid://bn3dk6jq11e81"]
 
 [ext_resource type="PackedScene" uid="uid://ucbgdmspgc7r" path="res://Resources/Scenes/Objects/message.tscn" id="1_nwx43"]
-[ext_resource type="PackedScene" uid="uid://br8qpi1k8rmjm" path="res://Resources/Scenes/Objects/scroll_bar.tscn" id="2_j2x4b"]
+[ext_resource type="Theme" uid="uid://bpnycp7bbvcdu" path="res://Resources/Themes/3310_small.tres" id="2_3kfaw"]
+[ext_resource type="Script" path="res://Resources/Scripts/button_scroll.gd" id="2_3t6xt"]
 
 [sub_resource type="Gradient" id="Gradient_ffg4p"]
 colors = PackedColorArray(0.780392, 0.941176, 0.847059, 1, 0.780392, 0.941176, 0.847059, 1)
@@ -20,115 +21,101 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_uyc0j")
 expand_mode = 1
 
-[node name="ScrollBar" parent="." instance=ExtResource("2_j2x4b")]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -6.0
-offset_top = -15.0
-offset_right = -1.0
-offset_bottom = 15.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme = ExtResource("2_3kfaw")
+horizontal_scroll_mode = 0
+script = ExtResource("2_3t6xt")
 
-[node name="Page" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-
-[node name="Message" parent="Page" instance=ExtResource("1_nwx43")]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+clip_contents = true
 layout_mode = 2
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 57.0
-offset_bottom = 16.0
-content = "Where are you? It's late"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
 
-[node name="Message2" parent="Page" instance=ExtResource("1_nwx43")]
+[node name="Message" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
 layout_mode = 2
-offset_left = 15.0
-offset_top = 16.0
-offset_right = 75.0
-offset_bottom = 28.0
-content = "I'm w my friends"
+content = "Nick, where r u? It's late, come home!"
+
+[node name="Message2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = "Chill, I'm w/ friends... at the park."
 selected = true
 
-[node name="Message3" parent="Page" instance=ExtResource("1_nwx43")]
+[node name="placehld" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
 layout_mode = 2
-offset_left = 15.0
-offset_top = 29.0
-offset_right = 75.0
-offset_bottom = 35.0
-content = "@ the park"
-selected = true
+content = ""
 
-[node name="Page2" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-
-[node name="Message" parent="Page2" instance=ExtResource("1_nwx43")]
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 57.0
-offset_bottom = 7.0
+[node name="Message4" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
 content = "Call back."
 
-[node name="Message2" parent="Page2" instance=ExtResource("1_nwx43")]
-offset_left = 15.0
-offset_top = 8.0
-offset_right = 75.0
-offset_bottom = 20.0
-content = "Was @ hockey practice"
+[node name="Message5" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = "Sorry, was at practice"
 selected = true
 
-[node name="Message4" parent="Page2" instance=ExtResource("1_nwx43")]
-offset_left = 1.0
-offset_top = 21.0
-offset_right = 57.0
-offset_bottom = 39.0
+[node name="Message6" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
 content = "Still playing that stupid game?"
 
-[node name="Message3" parent="Page2" instance=ExtResource("1_nwx43")]
-offset_left = 15.0
-offset_top = 40.0
-offset_right = 75.0
-offset_bottom = 46.0
+[node name="Message7" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
 content = "Problem?"
 selected = true
 
-[node name="Page3" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
+[node name="placehld2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = ""
 
-[node name="Message" parent="Page3" instance=ExtResource("1_nwx43")]
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 57.0
-offset_bottom = 7.0
-content = "Call back."
-
-[node name="Message2" parent="Page3" instance=ExtResource("1_nwx43")]
-offset_left = 15.0
-offset_top = 8.0
-offset_right = 75.0
-offset_bottom = 20.0
-content = "Was @ hockey practice"
+[node name="Message8" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = "Got a job at the corner bar"
 selected = true
 
-[node name="Message4" parent="Page3" instance=ExtResource("1_nwx43")]
-offset_left = 1.0
-offset_top = 21.0
-offset_right = 57.0
-offset_bottom = 39.0
-content = "Still playing that stupid game?"
+[node name="Message9" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = "Finally out of my house"
 
-[node name="Message3" parent="Page3" instance=ExtResource("1_nwx43")]
-offset_left = 15.0
-offset_top = 40.0
-offset_right = 75.0
-offset_bottom = 46.0
-content = "Problem?"
+[node name="Message10" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = "Yeah, dad helped w/ the resume"
+selected = true
+
+[node name="Message11" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = "Thanks to him. I'll wait for you at home"
+
+[node name="placehld3" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = ""
+
+[node name="Message12" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = "Dad was worried last night"
+
+[node name="Message13" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = "Told him I was at a party"
+selected = true
+
+[node name="Message14" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = "He knew but still, always worries"
+
+[node name="Message15" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = "It’s like I’m not even there"
+
+[node name="Message16" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_nwx43")]
+layout_mode = 2
+content = "U r, mum. I’ll see u later"
 selected = true

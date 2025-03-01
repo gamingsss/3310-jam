@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Resources/Scripts/Global/game_manager.gd"
+Unlocks="*res://Resources/Scripts/Global/unlockables.gd"
 
 [display]
 

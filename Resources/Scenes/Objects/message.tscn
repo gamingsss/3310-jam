@@ -1,20 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://ucbgdmspgc7r"]
+[gd_scene load_steps=9 format=3 uid="uid://ucbgdmspgc7r"]
 
 [ext_resource type="Script" path="res://Resources/Scripts/message.gd" id="1_2ilft"]
 [ext_resource type="FontFile" uid="uid://derk2fhkbhqpg" path="res://Assets/Fonts/tiny.ttf" id="2_21kle"]
+[ext_resource type="Texture2D" uid="uid://4q6fkq3pg5k1" path="res://Assets/Sprites/nokia glitch 1.png" id="2_oyyyi"]
+[ext_resource type="Script" path="res://Resources/Scripts/resize.gd" id="3_essm0"]
+[ext_resource type="Texture2D" uid="uid://ck4b41qppy3yw" path="res://Assets/Sprites/nokia glitch 2.png" id="3_swtg5"]
+[ext_resource type="Texture2D" uid="uid://xkrr55ba3brd" path="res://Assets/Sprites/nokia glitch 3.png" id="4_xd1fq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iodx"]
 bg_color = Color(0.780392, 0.941176, 0.847059, 1)
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_fe75l"]
+frames = 3
+frame_0/texture = ExtResource("2_oyyyi")
+frame_1/texture = ExtResource("3_swtg5")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_xd1fq")
+frame_2/duration = 1.0
+
 [node name="Message" type="PanelContainer"]
+custom_minimum_size = Vector2(42, 6)
 offset_right = 48.0
 offset_bottom = 6.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1iodx")
 script = ExtResource("1_2ilft")
+content = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[node name="hider" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_fe75l")
+expand_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(42, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.262745, 0.321569, 0.239216, 1)
 theme_override_fonts/normal_font = ExtResource("2_21kle")
 theme_override_font_sizes/normal_font_size = 6
-text = "cacca"
+text = "caca"
+fit_content = true
+autowrap_mode = 0
+script = ExtResource("3_essm0")

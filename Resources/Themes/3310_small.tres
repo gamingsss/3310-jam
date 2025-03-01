@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bpnycp7bbvcdu"]
+
+[ext_resource type="Texture2D" uid="uid://c638pentd32sr" path="res://Assets/Sprites/Scroll/nokia barra scroll_.png" id="1_3cafo"]
+[ext_resource type="FontFile" uid="uid://derk2fhkbhqpg" path="res://Assets/Fonts/tiny.ttf" id="1_y2vim"]
+[ext_resource type="Texture2D" uid="uid://dbs6imr0jah82" path="res://Assets/Sprites/Scroll/barra scrollbar base.png" id="2_wo57q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uyywv"]
+texture = ExtResource("1_3cafo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wq5sh"]
+texture = ExtResource("2_wo57q")
+
+[resource]
+default_font = ExtResource("1_y2vim")
+default_font_size = 6
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/decrement_pressed = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/icons/increment_pressed = null
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_uyywv")
+VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_pressed = null
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_wq5sh")
+VScrollBar/styles/scroll_focus = null

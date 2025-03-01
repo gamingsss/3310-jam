@@ -3,6 +3,7 @@ class_name Message
 
 @export var content : String
 @export var selected : bool
+@export var unlock_id = -1
 var callback : Callable
 
 @onready var __label = $RichTextLabel
@@ -28,3 +29,8 @@ func _process(delta: float) -> void:
 		__label.set("theme_override_colors/default_color", sel_bg)
 		
 	add_theme_stylebox_override("panel", stylebox)
+	
+	if unlock_id != -1 and not Unlocks.is_unlocked(unlock_id):
+		$hider.visible = true
+	else:
+		$hider.visible = false
